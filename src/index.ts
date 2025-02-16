@@ -1,5 +1,18 @@
 import Handlebars from 'handlebars';
 import * as Components from './components';
+import * as Pages from './pages';
+const pages = {
+  'login': [ Pages.LoginPage ],
+  'list': [ Pages.ListPage, {
+    cats: [
+      {name: 'cat-1', avatar: ""},
+      {name: 'cat-2', avatar: "", active: true},
+      {name: 'cat-3', avatar: ""},
+    ],
+    showDialog: true
+  }],
+  'nav': [ Pages.NavigatePage ]
+};
 
 Object.entries(Components).forEach(([ name, template ]) => {
   Handlebars.registerPartial(name, template);
